@@ -27,7 +27,7 @@
           —— 查尔斯·史考伯
         </p>
       </n-card>
-      <n-card class="ml-12 w-70%" title="✨ 欢迎使用 Vue Naive Admin 2.0">
+      <n-card class="ml-12 w-70%" :title="`✨ 欢迎使用 ${title}`">
         <template #header-extra>
           <a
             class="text-14 text-primary text-highlight hover:underline hover:opacity-80"
@@ -47,18 +47,9 @@
         <footer class="mt-12 flex items-center justify-end">
           <n-button
             type="primary"
-            ghost
-            tag="a"
-            href="https://docs.isme.top/web/#/624306705/188522224"
-            target="__blank"
-          >
-            开发文档
-          </n-button>
-          <n-button
-            type="primary"
             class="ml-12"
             tag="a"
-            href="https://github.com/zclzone/vue-naive-admin/tree/2.x"
+            href="https://github.com/jaylu2018/vue-naive-admin"
             target="__blank"
           >
             代码仓库
@@ -168,6 +159,7 @@ import { CanvasRenderer } from 'echarts/renderers'
 import VChart from 'vue-echarts'
 import { useUserStore } from '@/store'
 
+const title = import.meta.env.VITE_TITLE
 const userStore = useUserStore()
 
 echarts.use([

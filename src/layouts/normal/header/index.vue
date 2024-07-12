@@ -1,11 +1,3 @@
-<!--------------------------------
- - @Author: Ronnie Zhang
- - @LastEditor: Ronnie Zhang
- - @LastEditTime: 2023/12/16 18:52:48
- - @Email: zclzone@outlook.com
- - Copyright © 2023 Ronnie Zhang(大脸怪) | https://isme.top
- --------------------------------->
-
 <template>
   <AppCard class="flex items-center px-12" border-b="1px solid light_border dark:dark_border">
     <MenuCollapse />
@@ -21,14 +13,12 @@
 
       <i
         class="i-fe:github mr-16 cursor-pointer"
-        @click="handleLinkClick('https://github.com/zclzone/vue-naive-admin/tree/2.x')"
+        @click="handleLinkClick('https://github.com/jaylu2018/vue-naive-admin')"
       />
       <i
         class="i-me:gitee mr-16 cursor-pointer"
-        @click="handleLinkClick('https://gitee.com/isme-admin/vue-naive-admin/tree/2.x')"
+        @click="handleLinkClick('https://gitee.com/jaylu2020/vue-naive-admin')"
       />
-
-      <ThemeSetting class="mr-16" />
 
       <UserAvatar />
     </div>
@@ -38,6 +28,7 @@
 <script setup>
 import { ToggleTheme } from '@/components'
 import { AppTab, Fullscreen, MenuCollapse, UserAvatar } from '@/layouts/components'
+import { AppCard } from '@/components/index.js'
 
 function handleLinkClick(link) {
   window.open(link)

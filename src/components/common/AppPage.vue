@@ -20,6 +20,8 @@
 </template>
 
 <script setup>
+import { TheFooter } from '@/components/index.js'
+
 defineProps({
   full: {
     type: Boolean,

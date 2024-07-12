@@ -1,11 +1,3 @@
-<!--------------------------------
- - @Author: Ronnie Zhang
- - @LastEditor: Ronnie Zhang
- - @LastEditTime: 2023/12/05 21:28:36
- - @Email: zclzone@outlook.com
- - Copyright © 2023 Ronnie Zhang(大脸怪) | https://isme.top
- --------------------------------->
-
 <template>
   <div class="wh-full flex-col bg-[url(@/assets/images/login_bg.webp)] bg-cover">
     <div
@@ -82,6 +74,7 @@ import { useStorage } from '@vueuse/core'
 import api from './api'
 import { lStorage } from '@/utils'
 import { useAuthStore } from '@/store'
+import { TheFooter } from '@/components/index.js'
 
 const authStore = useAuthStore()
 const router = useRouter()
