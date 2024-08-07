@@ -1,15 +1,7 @@
-<!--------------------------------
- - @Author: Ronnie Zhang
- - @LastEditor: Ronnie Zhang
- - @LastEditTime: 2023/12/05 21:29:56
- - @Email: zclzone@outlook.com
- - Copyright © 2023 Ronnie Zhang(大脸怪) | https://isme.top
- --------------------------------->
-
 <template>
   <CommonPage>
     <template #action>
-      <NButton v-permission="'AddUser'" type="primary" @click="handleAdd()">
+      <NButton type="primary" @click="handleAdd()">
         <i class="i-material-symbols:add mr-4 text-18" />
         创建新用户
       </NButton>
@@ -115,6 +107,7 @@ import api from './api'
 import { formatDateTime } from '@/utils'
 import { MeCrud, MeModal, MeQueryItem } from '@/components'
 import { useCrud } from '@/composables'
+import { CommonPage } from '@/components/index.js'
 
 defineOptions({ name: 'UserMgt' })
 
@@ -220,7 +213,7 @@ const columns = [
     title: '操作',
     key: 'actions',
     width: 320,
-    align: 'right',
+    align: 'center',
     fixed: 'right',
     hideInExcel: true,
     render(row) {
@@ -278,6 +271,7 @@ async function handleEnable(row) {
     $message.success('操作成功')
     $table.value?.handleSearch()
   }
+  // eslint-disable-next-line unused-imports/no-unused-vars
   catch (error) {
     row.enableLoading = false
   }

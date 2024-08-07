@@ -1,11 +1,3 @@
-<!--------------------------------
- - @Author: Ronnie Zhang
- - @LastEditor: Ronnie Zhang
- - @LastEditTime: 2024/04/01 15:51:34
- - @Email: zclzone@outlook.com
- - Copyright © 2023 Ronnie Zhang(大脸怪) | https://isme.top
- --------------------------------->
-
 <template>
   <div>
     <n-space vertical :size="12">
@@ -28,8 +20,7 @@
         :on-update:selected-keys="onSelect"
         key-field="code"
         label-field="name"
-        default-expand-all
-        block-line
+        block-line default-expand-all
       />
     </n-space>
 
@@ -109,11 +100,12 @@ function handleDelete(item) {
     async confirm() {
       try {
         $message.loading('正在删除', { key: 'deleteMenu' })
-        await api.deletePermission(item.id)
+        await api.deleteMenu(item.id)
         $message.success('删除成功', { key: 'deleteMenu' })
         emit('refresh')
         emit('update:currentMenu', null)
       }
+      // eslint-disable-next-line unused-imports/no-unused-vars
       catch (error) {
         $message.destroy('deleteMenu')
       }

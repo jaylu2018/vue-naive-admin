@@ -1,11 +1,3 @@
-<!--------------------------------
- - @Author: Ronnie Zhang
- - @LastEditor: Ronnie Zhang
- - @LastEditTime: 2024/04/01 15:52:40
- - @Email: zclzone@outlook.com
- - Copyright © 2023 Ronnie Zhang(大脸怪) | https://isme.top
- --------------------------------->
-
 <template>
   <CommonPage>
     <template #action>
@@ -74,9 +66,7 @@
             :data="permissionTree"
             :checked-keys="modalForm.permissionIds"
             :on-update:checked-keys="(keys) => (modalForm.permissionIds = keys)"
-            checkable
-            check-on-click
-            default-expand-all
+            default-expand-all checkable check-on-click cascade
             class="cus-scroll max-h-200 w-full"
           />
         </n-form-item>
@@ -100,6 +90,7 @@ import { NButton, NSwitch } from 'naive-ui'
 import api from './api'
 import { MeCrud, MeModal, MeQueryItem } from '@/components'
 import { useCrud } from '@/composables'
+import { CommonPage } from '@/components/index.js'
 
 defineOptions({ name: 'RoleMgt' })
 
@@ -150,7 +141,7 @@ const columns = [
     title: '操作',
     key: 'actions',
     width: 320,
-    align: 'right',
+    align: 'center',
     fixed: 'right',
     render(row) {
       return [
@@ -210,6 +201,7 @@ async function handleEnable(row) {
     $message.success('操作成功')
     $table.value?.handleSearch()
   }
+  // eslint-disable-next-line unused-imports/no-unused-vars
   catch (error) {
     row.enableLoading = false
   }

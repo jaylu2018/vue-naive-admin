@@ -1,11 +1,3 @@
-<!--------------------------------
- - @Author: Ronnie Zhang
- - @LastEditor: Ronnie Zhang
- - @LastEditTime: 2023/12/05 21:29:43
- - @Email: zclzone@outlook.com
- - Copyright © 2023 Ronnie Zhang(大脸怪) | https://isme.top
- --------------------------------->
-
 <template>
   <CommonPage back>
     <template #title-suffix>
@@ -72,6 +64,7 @@ import { h } from 'vue'
 import api from './api'
 import { MeCrud, MeQueryItem } from '@/components'
 import { formatDateTime } from '@/utils'
+import { CommonPage } from '@/components/index.js'
 
 defineOptions({ name: 'RoleUser' })
 const route = useRoute()

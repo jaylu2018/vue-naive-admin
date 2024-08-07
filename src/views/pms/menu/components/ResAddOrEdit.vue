@@ -1,11 +1,3 @@
-<!--------------------------------
- - @Author: Ronnie Zhang
- - @LastEditor: Ronnie Zhang
- - @LastEditTime: 2024/04/01 15:52:31
- - @Email: zclzone@outlook.com
- - Copyright © 2023 Ronnie Zhang(大脸怪) | https://isme.top
- --------------------------------->
-
 <template>
   <MeModal ref="modalRef">
     <n-form
@@ -218,11 +210,11 @@ async function onSave() {
     if (!modalForm.value.parentId)
       modalForm.value.parentId = null
     if (modalAction.value === 'add') {
-      const res = await api.addPermission(modalForm.value)
+      const res = await api.addMenu(modalForm.value)
       newFormData = res.data
     }
     else if (modalAction.value === 'edit') {
-      await api.savePermission(modalForm.value.id, modalForm.value)
+      await api.editMenu(modalForm.value.id, modalForm.value)
     }
     okLoading.value = false
     $message.success('保存成功')

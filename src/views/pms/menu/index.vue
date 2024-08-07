@@ -1,11 +1,3 @@
-<!--------------------------------
- - @Author: Ronnie Zhang
- - @LastEditor: Ronnie Zhang
- - @LastEditTime: 2023/12/05 21:28:53
- - @Email: zclzone@outlook.com
- - Copyright © 2023 Ronnie Zhang(大脸怪) | https://isme.top
- --------------------------------->
-
 <template>
   <CommonPage>
     <div class="flex">
@@ -97,6 +89,7 @@ import MenuTree from './components/MenuTree.vue'
 import ResAddOrEdit from './components/ResAddOrEdit.vue'
 import api from './api'
 import { MeCrud } from '@/components'
+import { CommonPage } from '@/components/index.js'
 
 const treeData = ref([])
 const treeLoading = ref(false)
@@ -225,11 +218,12 @@ function handleDeleteBtn(id) {
     async onPositiveClick() {
       try {
         d.loading = true
-        await api.deletePermission(id)
+        await api.deleteMenu(id)
         $message.success('删除成功')
         $table.value.handleSearch()
         d.loading = false
       }
+      // eslint-disable-next-line unused-imports/no-unused-vars
       catch (error) {
         d.loading = false
       }
@@ -240,13 +234,14 @@ function handleDeleteBtn(id) {
 async function handleEnable(item) {
   try {
     item.enableLoading = true
-    await api.savePermission(item.id, {
+    await api.editMenu(item.id, {
       enable: !item.enable,
     })
     $message.success('操作成功')
     $table.value?.handleSearch()
     item.enableLoading = false
   }
+  // eslint-disable-next-line unused-imports/no-unused-vars
   catch (error) {
     item.enableLoading = false
   }
